@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+import { model, Schema } from "mongoose";
 
-const Order = new mongoose.Schema(
+const OrderSchema = new Schema(
 {
     customerFullName: {
         type: String,
@@ -36,6 +36,6 @@ const Order = new mongoose.Schema(
         type: String
     }
 }
-)
+);
 
-export default Order
+export const OrderModel = model("OrderModel", OrderSchema);
