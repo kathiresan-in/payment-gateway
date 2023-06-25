@@ -25,18 +25,6 @@ router.post("/orders", async (req, res) => {
     const accessToken = await paypal.generateAccessToken();
     const payload = await paypal.buildPayload(req.body.currency, req.body.amount);
 
-    const res1 = await fetch('https://api-m.sandbox.paypal.com/v2/checkout/orders', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'PayPal-Request-Id': uuid,
-            'Authorization': `Bearer ${accessToken}`
-        },
-        body: JSON.stringify(payload)
-    });
-
-    console.log('response', res1.status)
-
     fetch('https://api-m.sandbox.paypal.com/v2/checkout/orders', {
     method: 'POST',
     headers: {
@@ -51,11 +39,16 @@ router.post("/orders", async (req, res) => {
               customerFullName: req.body.customerFullName,
               currency: req.body.currency,
               amount: req.body.amount,
-              creditCard: req.body.creditCard,
+              creditCard: {
+		number: req.body.number,
+		expirationMonth: req.body.expirationMonth,
+		expirationYear: req.body.expirationYear,
+		ccv: req.body.ccv
+		},
               paymentReference: data.id
           });
           const dataToSave = orderData.save();
-          res.status(200).json(dataToSave)
+          res.status(200).json(orderData)
       })
       .catch((error) => {
           console.error(error);

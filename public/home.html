@@ -1,0 +1,39 @@
+<html>
+
+<body>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<div class="container">
+			<div class="card">
+				<div class="card-header">Credit Card Detail</div>
+				<div class="card-body">
+					<form method="POST" action="/api/orders" enctype="application/json">
+						<div class="mb-3">
+							<label>Customer Full Name</label>
+							<input type="text" name="customerFullName" id="customerFullName" class="form-control" />
+						</div>
+						<div class="mb-3">
+							<label>Currency</label>
+							<input type="text" name="currency" id="currency" class="form-control" />
+						</div>
+						<div class="mb-3">
+		                	<label>Amount</label>
+		                	<input type="text" name="amount" id="amount" class="form-control" />
+					<label>Card Number</label>
+                                        <input type="text" name="number" id="number" class="form-control" />
+					<label>Card Expiry Month</label>
+                                        <input type="text" name="expirationMonth" id="expirationMonth" class="form-control" />
+					<label>Card Expiry Year</label>
+                                        <input type="text" name="expirationYear" id="expirationYear" class="form-control" />
+					<label>CCV</label>
+                                        <input type="text" name="ccv" id="ccv" class="form-control" />
+		                </div>
+		                <div class="mb-3">
+		                	<input type="submit" name="submit_button" class="btn btn-primary" value="Submit" />
+		                </div>
+					</form>
+				</div>
+			</div>
+		</div>
+</body>
+</html>
